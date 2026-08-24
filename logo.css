@@ -257,6 +257,13 @@ footer small { color: #9bb3d3; }
 .hero-button:hover, .hero-button--primary { background: #fff; color: #071a36; }
 .hero-status { display: flex; align-items: center; gap: 8px; margin-top: 22px; color: #dbe8f8; font: 9px "Archivo Black"; letter-spacing: .17em; position: relative; z-index: 3; }
 .hero-status i { width: 7px; height: 7px; border-radius: 50%; background: #b9d7ff; box-shadow: 0 0 12px #b9d7ff; }
+.hero-copy { top: 23%; right: 8vw; max-width: 390px; transform: none; font-size: clamp(18px, 2vw, 27px); line-height: 1.8; letter-spacing: .08em; font-weight: 400; }
+.hero-copy p { margin: 0 0 18px; color: #e7f0fb; }
+.hero-copy strong { display: block; padding-left: 18px; border-left: 3px solid #b9d7ff; color: #fff; font-size: clamp(22px, 2.7vw, 38px); line-height: 1.35; }
+.admin-link { display: inline-block; margin-top: 24px; color: #b9d7ff; font-size: 11px; text-decoration: none; border-bottom: 1px solid #b9d7ff; padding-bottom: 7px; }
+.footer-admin { color: #b9d7ff; text-decoration: none; font: 9px "Archivo Black"; letter-spacing: .12em; }
+.crowd-list [data-status="混雑"] .crowd-dot, .crowd-list [data-status="受付停止"] .crowd-dot, .crowd-list [data-status="入場制限"] .crowd-dot { background: #fff; box-shadow: 0 0 0 4px #ffffff44; }
+.crowd-list [data-status="空いています"] .crowd-dot { background: #b9d7ff; }
 .sns-card { text-decoration: none; }
 .campus-map { margin-top: 105px; padding-top: 40px; border-top: 1px solid #cbd7e8; }
 .campus-map-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 30px; }
@@ -277,6 +284,8 @@ footer small { color: #9bb3d3; }
 @media (max-width: 700px) {
   .hero-actions { flex-wrap: wrap; }
   .hero-button { padding: 12px 14px; }
+  .hero-copy { top: 45%; right: 7vw; max-width: 290px; font-size: 15px; }
+  .hero-copy strong { font-size: 23px; }
   .campus-map { margin-top: 75px; }
   .campus-map-heading { display: block; }
   .campus-map-heading h3 { font-size: 32px; }

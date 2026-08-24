@@ -68,3 +68,10 @@ if ('IntersectionObserver' in window && galleryImages.length) {
   }), { threshold: 0.15 });
   galleryImages.forEach(image => galleryObserver.observe(image));
 } else galleryImages.forEach(image => image.classList.add('is-visible'));
+
+const crowdRows = document.querySelectorAll('[data-crowd-key]');
+const crowdStatus = JSON.parse(localStorage.getItem('harvestCrowdStatus') || '{}');
+crowdRows.forEach(row => {
+  const value = crowdStatus[row.dataset.crowdKey];
+  if (value) { row.querySelector('b').textContent = value; row.dataset.status = value; }
+});
