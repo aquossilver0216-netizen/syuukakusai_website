@@ -82,11 +82,11 @@
 
     <section class="section events" id="events">
       <p class="section-number">04 / PICK UP EVENTS</p>
-      <div class="section-heading"><h2>注目企画</h2><p>見逃せないイベントをピックアップ。</p></div>
+      <div class="section-heading"><div><h2>注目企画</h2><p>出し物は決まり次第、順次公開します。</p></div><a class="reserve-link" href="reservation.html">予約ページ ↗</a></div>
       <div class="event-grid">
-        <article class="event-card event-card--orange"><span class="tag">STAGE</span><div class="event-icon">♪</div><p>体育館ステージ</p><h3>軽音ライブ</h3><small>10.31 SAT / 13:00</small></article>
-        <article class="event-card event-card--green"><span class="tag">FOOD</span><div class="event-icon">✦</div><p>中庭エリア</p><h3>模擬店ストリート</h3><small>ALL DAY</small></article>
-        <article class="event-card event-card--purple"><span class="tag">SPECIAL</span><div class="event-icon">⚡</div><p>グラウンド</p><h3>後夜祭</h3><small>11.01 SUN / 16:00</small></article>
+        <article class="event-card event-card--orange"><span class="tag">STAGE</span><div class="event-icon">?</div><p>体育館ステージ</p><h3>COMING SOON</h3><small>企画決定後に公開</small></article>
+        <article class="event-card event-card--green"><span class="tag">FOOD</span><div class="event-icon">?</div><p>中庭エリア</p><h3>COMING SOON</h3><small>企画決定後に公開</small></article>
+        <article class="event-card event-card--purple"><span class="tag">SPECIAL</span><div class="event-icon">?</div><p>特別企画</p><h3>COMING SOON</h3><small>企画決定後に公開</small></article>
       </div>
     </section>
 
@@ -109,16 +109,16 @@
       <div class="tabs" role="tablist"><button class="tab active" data-day="day1">10.31 SAT</button><button class="tab" data-day="day2">11.01 SUN</button></div>
       <div class="timeline active" id="day1">
         <div><time>09:00</time><span>正門</span><strong>OPENING</strong></div>
-        <div><time>11:30</time><span>体育館</span><strong>ダンスパフォーマンス</strong></div>
-        <div><time>13:00</time><span>体育館</span><strong>軽音ライブ</strong></div>
-        <div><time>15:30</time><span>中庭</span><strong>クイズ大会</strong></div>
+        <div><time>—</time><span>STAGE</span><strong>COMING SOON</strong></div>
+        <div><time>—</time><span>FOOD</span><strong>COMING SOON</strong></div>
+        <div><time>—</time><span>EVENT</span><strong>COMING SOON</strong></div>
         <div><time>16:30</time><span>全エリア</span><strong>CLOSING</strong></div>
       </div>
       <div class="timeline" id="day2">
         <div><time>09:00</time><span>全エリア</span><strong>DAY 2 START</strong></div>
-        <div><time>11:00</time><span>体育館</span><strong>演劇公演</strong></div>
-        <div><time>14:00</time><span>中庭</span><strong>有志ステージ</strong></div>
-        <div><time>16:00</time><span>グラウンド</span><strong>後夜祭</strong></div>
+        <div><time>—</time><span>STAGE</span><strong>COMING SOON</strong></div>
+        <div><time>—</time><span>FOOD</span><strong>COMING SOON</strong></div>
+        <div><time>—</time><span>EVENT</span><strong>COMING SOON</strong></div>
         <div><time>16:30</time><span>正門</span><strong>CLOSING</strong></div>
       </div>
     </section>
@@ -137,16 +137,17 @@
       <p class="section-number">08 / ACCESS</p>
       <div class="access-box">
         <div><h2>会場アクセス</h2><h3>慶應志木高校</h3><p>〒353-0004<br>埼玉県志木市本町4-14-1</p><p class="note">※ご来場の際は公共交通機関をご利用ください。</p></div>
-        <div class="map"><span>VENUE MAP</span><div class="pin">●</div><p>埼玉県志木市本町4-14-1</p></div>
+        <div class="map" id="google-map-card"><span>GOOGLE MAP</span><div class="pin">●</div><p>埼玉県志木市本町4-14-1</p><div class="map-actions"><a href="https://www.google.com/maps/search/?api=1&amp;query=慶應義塾志木高等学校" target="_blank" rel="noopener">Googleマップで開く ↗</a><button id="locate-me" type="button">現在地を取得</button></div><small id="location-status">現在地ボタンで、近くの案内を表示できます。</small></div>
       </div>
       <div class="campus-map" id="campus-map">
         <div class="campus-map-heading"><div><p class="eyebrow">CAMPUS GUIDE</p><h3>校内マップ</h3></div><p>当日の会場案内は、入口でも配布します。</p></div>
-        <div class="map-layout" aria-label="校内マップの案内図">
-          <div class="map-zone map-zone--gate"><span>01</span><strong>正門 / 受付</strong><small>Entrance</small></div>
-          <div class="map-zone map-zone--school"><span>02</span><strong>校舎</strong><small>Classrooms &amp; Exhibitions</small></div>
-          <div class="map-zone map-zone--gym"><span>03</span><strong>体育館</strong><small>Stage</small></div>
-          <div class="map-zone map-zone--yard"><span>04</span><strong>中庭</strong><small>Food &amp; Market</small></div>
-          <div class="map-route">MAIN ROUTE　→</div>
+        <div class="map-tabs" role="tablist"><button class="map-tab active" data-map="map-all">全体</button><button class="map-tab" data-map="map-hr">HR棟 1/2F</button><button class="map-tab" data-map="map-hr34">HR棟 3/4F</button><button class="map-tab" data-map="map-central">中央・理科・文化棟</button><button class="map-tab" data-map="map-media">メディア・光彩館</button></div>
+        <div class="map-views">
+          <figure class="map-view active" id="map-all"><img src="スクリーンショット 2026-08-24 15.55.22.png" alt="慶應志木高校 校内全体マップ" loading="lazy"><figcaption>全体マップ｜正門・受付、体育館、中央棟、理科棟、文化棟、光彩館、メディア棟</figcaption></figure>
+          <figure class="map-view" id="map-hr"><img src="スクリーンショット 2026-08-24 15.55.13.png" alt="HR棟 1階・2階マップ" loading="lazy"><figcaption>HR棟 1階・2階｜教室企画</figcaption></figure>
+          <figure class="map-view" id="map-hr34"><img src="スクリーンショット 2026-08-24 15.55.34.png" alt="HR棟 3階・4階マップ" loading="lazy"><figcaption>HR棟 3階・4階｜教室企画</figcaption></figure>
+          <figure class="map-view" id="map-central"><img src="スクリーンショット 2026-08-24 15.55.28.png" alt="中央棟・理科棟・文化棟マップ" loading="lazy"><figcaption>中央棟・理科棟・文化棟｜展示・飲食スペース</figcaption></figure>
+          <figure class="map-view" id="map-media"><img src="スクリーンショット 2026-08-24 15.55.39.png" alt="メディア棟・光彩館マップ" loading="lazy"><figcaption>メディア棟・光彩館｜ホールイベント</figcaption></figure>
         </div>
       </div>
     </section>
