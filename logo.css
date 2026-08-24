@@ -1,0 +1,36 @@
+.hero-brand {
+  width: clamp(320px, 43vw, 600px);
+  margin: 8px 0 8px -18px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.date-card { margin-top: 28px; }
+
+@media (max-width: 700px) {
+  .hero-brand {
+    width: min(96vw, 500px);
+    margin: 55px 0 0 -7vw;
+  }
+
+  .date-card { margin-top: 170px; }
+}
