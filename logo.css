@@ -329,6 +329,55 @@ footer small { color: #9bb3d3; }
   .news-list b { grid-column: 3; grid-row: 1 / span 2; }
 }
 
+.gallery-intro { display: grid; grid-template-columns: 1fr auto; gap: 6vw; align-items: end; margin-bottom: 55px; }
+.gallery-intro h2 { margin: 0 0 20px; font-size: clamp(42px, 5.5vw, 78px); line-height: 1.1; }
+.gallery-intro h2 em { color: #0d4fa8; font-style: normal; }
+.gallery-intro > div:first-child > p:last-child { max-width: 520px; margin: 0; color: #3c5880; font-size: 14px; line-height: 1.9; }
+.gallery-count { display: flex; gap: 14px; align-items: end; color: #0d4fa8; }
+.gallery-count strong { font: clamp(60px, 8vw, 110px) "Archivo Black"; line-height: .75; }
+.gallery-count span { font: 9px "Archivo Black"; letter-spacing: .13em; line-height: 1.45; }
+.gallery-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: 108px; gap: 18px; }
+.gallery-card { min-width: 0; margin: 0; }
+.gallery-card--feature { grid-column: span 7; grid-row: span 4; }
+.gallery-card:nth-child(2), .gallery-card:nth-child(3) { grid-column: span 5; grid-row: span 2; }
+.gallery-card:nth-child(n+4) { grid-column: span 4; grid-row: span 2; }
+.gallery-card button { display: block; width: 100%; height: calc(100% - 47px); min-height: 0; padding: 0; border: 0; position: relative; overflow: hidden; background: #071a36; cursor: zoom-in; }
+.gallery-card img { display: block; width: 100%; height: 100%; object-fit: cover; filter: saturate(.72) contrast(1.08); transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .35s; }
+.gallery-card button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, #071a3699 100%); opacity: .5; transition: opacity .3s; }
+.gallery-card button:hover img { transform: scale(1.06); filter: saturate(1) contrast(1.1); }
+.gallery-card button:hover::after { opacity: .15; }
+.gallery-zoom { position: absolute; z-index: 1; right: 13px; bottom: 12px; color: #fff; font: 9px "Archivo Black"; letter-spacing: .13em; opacity: 0; transform: translateY(7px); transition: opacity .25s, transform .25s; }
+.gallery-card button:hover .gallery-zoom { opacity: 1; transform: translateY(0); }
+.gallery-card figcaption { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; min-height: 47px; padding-top: 13px; color: #071a36; }
+.gallery-card figcaption span { color: #0d4fa8; font: 9px "Archivo Black"; letter-spacing: .1em; white-space: nowrap; }
+.gallery-card figcaption strong { font-size: 13px; font-weight: 700; text-align: right; }
+.gallery-footnote { margin: 25px 0 0; color: #6d87aa; font-size: 10px; letter-spacing: .1em; text-align: right; }
+.photo-lightbox { width: min(92vw, 1100px); max-width: none; max-height: 90vh; padding: 48px 70px 28px; border: 1px solid #b9d7ff; background: #071a36f5; color: #fff; }
+.photo-lightbox::backdrop { background: #071a36d9; backdrop-filter: blur(8px); }
+.photo-lightbox figure { margin: 0; text-align: center; }
+.photo-lightbox img { display: block; width: 100%; max-height: 72vh; object-fit: contain; }
+.photo-lightbox figcaption { margin-top: 14px; color: #b9d7ff; font-size: 12px; }
+.lightbox-close, .lightbox-arrow { position: absolute; border: 0; background: none; color: #fff; cursor: pointer; }
+.lightbox-close { top: 10px; right: 18px; font-size: 30px; }
+.lightbox-arrow { top: 50%; font-size: 30px; transform: translateY(-50%); }
+.lightbox-arrow--prev { left: 20px; }
+.lightbox-arrow--next { right: 20px; }
+.lightbox-close:hover, .lightbox-arrow:hover { color: #b9d7ff; }
+
+@media (max-width: 700px) {
+  .gallery-intro { display: block; margin-bottom: 38px; }
+  .gallery-count { margin-top: 30px; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 145px; gap: 10px; }
+  .gallery-card--feature { grid-column: span 2; grid-row: span 3; }
+  .gallery-card:nth-child(2), .gallery-card:nth-child(3), .gallery-card:nth-child(n+4) { grid-column: span 1; grid-row: span 2; }
+  .gallery-card figcaption { display: block; min-height: 46px; padding-top: 8px; }
+  .gallery-card figcaption strong { display: block; margin-top: 4px; text-align: left; font-size: 11px; }
+  .gallery-card button { height: calc(100% - 54px); }
+  .photo-lightbox { padding: 46px 38px 22px; }
+  .lightbox-arrow--prev { left: 7px; }
+  .lightbox-arrow--next { right: 7px; }
+}
+
 .live-info { background: #fff; }
 .live-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .weather-panel, .crowd-panel { padding: 30px; border: 1px solid #cbd7e8; background: #e7f0fb; }

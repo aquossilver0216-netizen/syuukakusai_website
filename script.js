@@ -69,6 +69,32 @@ if ('IntersectionObserver' in window && galleryImages.length) {
   galleryImages.forEach(image => galleryObserver.observe(image));
 } else galleryImages.forEach(image => image.classList.add('is-visible'));
 
+const photoButtons = [...document.querySelectorAll('.gallery-card button[data-photo]')];
+const lightbox = document.querySelector('#photo-lightbox');
+const lightboxImage = document.querySelector('#lightbox-image');
+const lightboxCaption = document.querySelector('#lightbox-caption');
+let currentPhoto = 0;
+const showPhoto = index => {
+  if (!lightbox || !photoButtons.length) return;
+  currentPhoto = (index + photoButtons.length) % photoButtons.length;
+  const source = photoButtons[currentPhoto].querySelector('img');
+  lightboxImage.src = source.src;
+  lightboxImage.alt = source.alt;
+  lightboxCaption.textContent = photoButtons[currentPhoto].closest('.gallery-card').querySelector('figcaption strong').textContent;
+  if (!lightbox.open) lightbox.showModal();
+};
+photoButtons.forEach((button, index) => button.addEventListener('click', () => showPhoto(index)));
+document.querySelector('.lightbox-close')?.addEventListener('click', () => lightbox.close());
+document.querySelector('.lightbox-arrow--prev')?.addEventListener('click', () => showPhoto(currentPhoto - 1));
+document.querySelector('.lightbox-arrow--next')?.addEventListener('click', () => showPhoto(currentPhoto + 1));
+lightbox?.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+document.addEventListener('keydown', event => {
+  if (!lightbox?.open) return;
+  if (event.key === 'Escape') lightbox.close();
+  if (event.key === 'ArrowLeft') showPhoto(currentPhoto - 1);
+  if (event.key === 'ArrowRight') showPhoto(currentPhoto + 1);
+});
+
 const crowdRows = document.querySelectorAll('[data-crowd-key]');
 const crowdStatus = JSON.parse(localStorage.getItem('harvestCrowdStatus') || '{}');
 crowdRows.forEach(row => {
