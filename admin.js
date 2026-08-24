@@ -84,7 +84,7 @@ const copyText = async text => {
 shareButton?.addEventListener('click', async () => {
   const data = Object.fromEntries(new FormData(form));
   localStorage.setItem(storageKey, JSON.stringify(data));
-  const url = new URL('index.html', window.location.href);
+  const url = new URL('programs.html', window.location.href);
   url.searchParams.set('crowd', JSON.stringify(data));
   url.hash = 'crowd';
   const copied = await copyText(url.toString());
