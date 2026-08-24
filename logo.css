@@ -183,3 +183,70 @@ footer small { color: #a8c0e3; }
   .nav { background: #14356df7; }
   .brochure img { box-shadow: 10px 10px 0 #e64e6d; }
 }
+
+/* Final monochrome palette: white, blue, and black */
+:root {
+  --bg: #ffffff;
+  --text: #071a36;
+  --orange: #0d4fa8;
+  --green: #0d4fa8;
+  --purple: #0d4fa8;
+  --line: #cbd7e8;
+}
+body { background: #fff; color: #071a36; }
+.header { border-bottom-color: #ffffff66; }
+.logo, .nav a { color: #fff; }
+.logo span, .nav a:hover { color: #b9d7ff; }
+.hero { background: linear-gradient(125deg, #06162e 0%, #0d4fa8 58%, #ffffff 100%); }
+.hero::before { border-color: #ffffff18; }
+.hero::after { border-color: #0d4fa840; }
+.hero-kicker, .scroll span { color: #b9d7ff; }
+.hero-orbit { border-color: #ffffff80; box-shadow: 0 0 100px #06162e55; }
+.hero-orbit::after { background: #b9d7ff; box-shadow: 0 0 20px #b9d7ff; }
+.date-card i { color: #b9d7ff; }
+.about, .schedule { background: #fff; }
+.section-number, .eyebrow, .timeline time { color: #0d4fa8; }
+.about h2 em, .guide-copy h2 em, .character-copy h2 em, .sns-heading h2 em { color: #0d4fa8; }
+.about-grid > div, .guide-copy > p:not(.eyebrow), .character-copy > p:not(.eyebrow), .sns-heading > div > p { color: #3c5880; }
+.stats, .stats div, .tabs, .timeline div { border-color: #cbd7e8; }
+.stats strong { color: #0d4fa8; }
+.stats span, .section-heading p, .timeline span { color: #6d87aa; }
+.festival-guide { background: #e7f0fb; }
+.text-link { color: #0d4fa8; border-color: #0d4fa8; }
+.text-link span, .archive-link span { color: #071a36; }
+.archive-link { color: #3c5880; border-color: #9bb3d3; }
+.brochure img { border-color: #fff; box-shadow: 18px 18px 0 #0d4fa8; }
+.events { background: #0d4fa8; }
+.events .section-number { color: #b9d7ff; }
+.events .section-heading p { color: #e7f0fb; }
+.event-card--orange { background: #fff; color: #071a36; }
+.event-card--green { background: #b9d7ff; color: #071a36; }
+.event-card--purple { background: #071a36; color: #fff; }
+.tab { color: #6d87aa; }
+.tab.active { color: #0d4fa8; border-color: #0d4fa8; }
+.timeline strong { color: #071a36; }
+.character { background: #071a36; color: #fff; }
+.character .section-number { color: #b9d7ff; }
+.character-copy > p:not(.eyebrow) { color: #dbe8f8; }
+.character-copy h2 em { color: #b9d7ff; }
+.character-stamp { color: #b9d7ff; border-color: #b9d7ff; }
+.access { background: #fff; color: #071a36; }
+.access .section-number, .access h2, .access h3 { color: #0d4fa8; }
+.map { border-color: #0d4fa8; background: repeating-linear-gradient(45deg, transparent, transparent 30px, #0d4fa80d 30px, #0d4fa80d 31px); }
+.map .pin { color: #0d4fa8; }
+.sns { background: #0d4fa8; color: #fff; }
+.sns .section-number, .sns-heading h2 em { color: #b9d7ff; }
+.sns-heading > div > p { color: #e7f0fb; }
+.sns-mark { border-color: #b9d7ff; }
+.sns-card { background: #071a36; }
+.sns-card span { color: #b9d7ff; }
+.gallery { background: #e7f0fb; }
+.brochure figcaption, .sns-card small { color: #6d87aa; }
+footer { background: #071a36; }
+footer > p { color: #b9d7ff; }
+footer small { color: #9bb3d3; }
+
+@media (max-width: 700px) {
+  .nav { background: #071a36f7; }
+  .brochure img { box-shadow: 10px 10px 0 #0d4fa8; }
+}
