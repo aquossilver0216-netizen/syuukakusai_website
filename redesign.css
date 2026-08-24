@@ -215,3 +215,40 @@ footer { padding: 60px clamp(24px, 8vw, 140px); background: var(--ink); }
   .character-art figcaption strong { margin-top: 11px; font-size: 27px; }
   .character-showcase-foot { margin-top: 15px; }
 }
+
+/* Multi-page navigation */
+.subpage { min-height: 100vh; background: var(--paper); }
+.subpage-hero { min-height: 52svh; padding: 150px clamp(24px, 8vw, 140px) 82px; position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(120deg, var(--ink), var(--blue-deep)); color: #fff; }
+.subpage-hero::before { content: ""; position: absolute; width: min(60vw, 820px); height: min(60vw, 820px); right: -14vw; top: -34vw; border: 110px solid #b9d7ff18; border-radius: 50%; z-index: -1; }
+.subpage-hero::after { content: ""; position: absolute; width: 45vw; height: 45vw; left: -28vw; bottom: -33vw; border: 70px solid #b9d7ff16; border-radius: 50%; z-index: -1; }
+.subpage-hero .hero-kicker { margin: 0 0 21px; color: var(--pale); }
+.subpage-hero h1 { max-width: 880px; margin: 0; font-size: clamp(52px, 9vw, 142px); line-height: .98; letter-spacing: -.06em; }
+.subpage-hero h1 em { color: var(--pale); font-style: normal; }
+.subpage-hero > p:not(.hero-kicker) { max-width: 500px; margin: 28px 0 0; color: #dbe8f8; font-size: 15px; line-height: 1.9; }
+.subpage-label { display: block; margin-bottom: 20px; color: var(--pale); font: 10px "Archivo Black"; letter-spacing: .18em; }
+.subpage-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.subpage-actions a { display: inline-flex; align-items: center; gap: 15px; padding: 12px 16px; border: 1px solid #b9d7ff; color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; }
+.subpage-actions a:hover { background: #fff; color: var(--ink); }
+.page-hubs { background: var(--mist); }
+.hub-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.hub-card { min-height: 210px; padding: 24px; border: 1px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; position: relative; transition: background .2s, color .2s, transform .2s; }
+.hub-card:hover { background: var(--blue); color: #fff; transform: translateY(-5px); }
+.hub-card > span { display: block; color: var(--blue); font: 9px "Archivo Black"; letter-spacing: .13em; }
+.hub-card:hover > span, .hub-card:hover small { color: var(--pale); }
+.hub-card h3 { margin: 30px 0 9px; font-size: 24px; letter-spacing: -.04em; }
+.hub-card small { display: block; color: #6d87aa; font-size: 11px; line-height: 1.6; }
+.hub-card b { position: absolute; right: 20px; bottom: 16px; font-size: 24px; font-weight: 400; }
+.subpage-footer { margin-top: 0; }
+.subpage-footer .footer-pages { display: flex; flex-wrap: wrap; gap: 18px; margin: 20px 0 0; }
+.subpage-footer .footer-pages a { color: var(--pale); font: 9px "Archivo Black"; letter-spacing: .12em; text-decoration: none; }
+.subpage-footer .footer-pages a:hover { color: #fff; }
+
+@media (max-width: 700px) {
+  .subpage-hero { min-height: 470px; padding: 115px 6vw 62px; }
+  .subpage-hero h1 { font-size: clamp(48px, 17vw, 88px); }
+  .subpage-hero > p:not(.hero-kicker) { font-size: 13px; }
+  .hub-grid { grid-template-columns: 1fr; gap: 8px; }
+  .hub-card { min-height: 150px; padding: 20px; }
+  .hub-card h3 { margin-top: 20px; }
+  .subpage-footer .footer-pages { gap: 12px; }
+}
