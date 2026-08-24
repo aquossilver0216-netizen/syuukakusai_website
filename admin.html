@@ -18,8 +18,8 @@
     <label class="admin-row"><span><strong>正門・受付</strong><small>Entrance / Reception</small></span><select name="gate"><option value="COMING SOON">COMING SOON</option><option value="空いています">空いています</option><option value="やや混雑">やや混雑</option><option value="混雑">混雑</option><option value="受付停止">受付停止</option></select></label>
     <label class="admin-row"><span><strong>体育館</strong><small>Gym / Stage</small></span><select name="gym"><option value="COMING SOON">COMING SOON</option><option value="空いています">空いています</option><option value="やや混雑">やや混雑</option><option value="混雑">混雑</option><option value="入場制限">入場制限</option></select></label>
     <label class="admin-row"><span><strong>中庭・模擬店</strong><small>Yard / Food Market</small></span><select name="yard"><option value="COMING SOON">COMING SOON</option><option value="空いています">空いています</option><option value="やや混雑">やや混雑</option><option value="混雑">混雑</option><option value="販売終了">販売終了</option></select></label>
-    <div class="admin-actions"><button type="submit">状況を保存する</button><button type="reset">リセット</button></div><p class="admin-message" id="admin-message" role="status"></p>
+    <div class="admin-actions"><button type="submit">状況を保存する</button><button type="reset">リセット</button><button id="share-crowd" type="button">共有リンクをコピー</button></div><p class="admin-message" id="admin-message" role="status"></p>
   </form>
-  <p class="admin-note"><strong>注意：</strong>現在はブラウザ内保存（localStorage）です。複数のスタッフや来場者の端末へリアルタイム共有するには、後からFirebase等のデータベース接続を追加してください。</p>
+  <p class="admin-note"><strong>共有について：</strong>「共有リンクをコピー」で、保存した状況をURLのスナップショットとして来場者へ送れます。現在はブラウザ内保存（localStorage）のため、全端末へ自動反映するリアルタイム運用には、後からFirebase等のデータベース接続が必要です。</p>
   <a class="admin-home" href="index.html#crowd">公開サイトの混雑状況を見る ↗</a>
 </div></main><script src="admin.js"></script></body></html>

@@ -38,6 +38,57 @@ document.querySelectorAll('.map-tab').forEach(tab => tab.addEventListener('click
   document.getElementById(tab.dataset.map).classList.add('active');
 }));
 
+const projectResults = [...document.querySelectorAll('.project-result')];
+const projectSearch = document.querySelector('#project-search');
+const projectFilters = [...document.querySelectorAll('.project-filter')];
+const projectCount = document.querySelector('#project-count');
+const projectEmpty = document.querySelector('#project-empty');
+let activeProjectFilter = 'all';
+const filterProjects = () => {
+  const query = (projectSearch?.value || '').trim().toLowerCase();
+  let visible = 0;
+  projectResults.forEach(card => {
+    const matchesFilter = activeProjectFilter === 'all' || card.dataset.category === activeProjectFilter;
+    const matchesQuery = !query || (card.dataset.search || '').toLowerCase().includes(query);
+    card.hidden = !(matchesFilter && matchesQuery);
+    if (!card.hidden) visible += 1;
+  });
+  if (projectCount) projectCount.textContent = `${visible} PROJECT${visible === 1 ? '' : 'S'}`;
+  if (projectEmpty) projectEmpty.hidden = visible !== 0;
+};
+projectFilters.forEach(button => button.addEventListener('click', () => {
+  activeProjectFilter = button.dataset.filter || 'all';
+  projectFilters.forEach(item => item.classList.toggle('active', item === button));
+  filterProjects();
+}));
+projectSearch?.addEventListener('input', filterProjects);
+filterProjects();
+
+const roomData = {
+  gate: { title: '正門・受付', description: '正門から入場受付へ。まずはここでパンフレットと会場案内を受け取れます。' },
+  gym: { title: '体育館', description: 'ステージ企画の会場です。開始前後は混雑が予想されるため、スタッフの案内に従ってください。' },
+  central: { title: '中央・理科棟', description: '展示や体験企画をめぐるエリア。中央・理科・文化棟マップで位置を確認できます。' },
+  hr: { title: 'HR棟 1/2F', description: '各教室の企画を探せるフロアです。教室名や企画は決まり次第、検索欄に追加します。' },
+  hr34: { title: 'HR棟 3/4F', description: 'HR棟の上階フロアです。階段や通路では立ち止まらず、譲り合ってお進みください。' },
+  yard: { title: '中庭・模擬店', description: 'フードやドリンクが集まる屋外エリア。混雑状況を確認してから向かえます。' },
+  media: { title: 'メディア・光彩館', description: 'ホールイベントや発表の会場です。メディア・光彩館マップで入口を確認できます。' }
+};
+const roomButtons = [...document.querySelectorAll('.room-button')];
+const roomTitle = document.querySelector('#room-picker-title');
+const roomNumber = document.querySelector('#room-number');
+const roomDescription = document.querySelector('#room-description');
+const selectRoom = button => {
+  const data = roomData[button.dataset.room];
+  if (!data) return;
+  roomButtons.forEach(item => item.classList.toggle('active', item === button));
+  if (roomTitle) roomTitle.textContent = data.title;
+  if (roomNumber) roomNumber.textContent = `AREA ${String(button.querySelector('span')?.textContent || '').padStart(2, '0')}`;
+  if (roomDescription) roomDescription.textContent = data.description;
+  const mapTab = document.querySelector(`.map-tab[data-map="${button.dataset.mapTarget}"]`);
+  if (mapTab && !mapTab.classList.contains('active')) mapTab.click();
+};
+roomButtons.forEach(button => button.addEventListener('click', () => selectRoom(button)));
+
 const locateButton = document.querySelector('#locate-me');
 const locationStatus = document.querySelector('#location-status');
 if (locateButton && locationStatus) {
@@ -109,9 +160,56 @@ document.addEventListener('keydown', event => {
   if (event.key === 'ArrowRight') showPhoto(currentPhoto + 1);
 });
 
-const crowdRows = document.querySelectorAll('[data-crowd-key]');
-const crowdStatus = JSON.parse(localStorage.getItem('harvestCrowdStatus') || '{}');
+const crowdRows = [...document.querySelectorAll('[data-crowd-key]')];
+let crowdStatus = {};
+try { crowdStatus = JSON.parse(localStorage.getItem('harvestCrowdStatus') || '{}'); } catch { crowdStatus = {}; }
+const sharedCrowd = new URLSearchParams(window.location.search).get('crowd');
+if (sharedCrowd) {
+  try {
+    const sharedStatus = JSON.parse(sharedCrowd);
+    if (sharedStatus && typeof sharedStatus === 'object') crowdStatus = sharedStatus;
+  } catch { /* Ignore malformed share links and keep local status. */ }
+}
 crowdRows.forEach(row => {
   const value = crowdStatus[row.dataset.crowdKey];
   if (value) { row.querySelector('b').textContent = value; row.dataset.status = value; }
+});
+
+const crowdSource = document.querySelector('#crowd-source');
+if (sharedCrowd && crowdSource) crowdSource.textContent = '共有リンクの状態を表示中（スナップショット）';
+
+const crowdShareUrl = () => {
+  const status = Object.fromEntries(crowdRows.map(row => [row.dataset.crowdKey, row.querySelector('b')?.textContent || 'COMING SOON']));
+  const url = new URL(window.location.href);
+  url.search = '';
+  url.searchParams.set('crowd', JSON.stringify(status));
+  url.hash = 'crowd';
+  return url.toString();
+};
+const copyText = async text => {
+  if (navigator.clipboard?.writeText) {
+    try { await navigator.clipboard.writeText(text); return true; } catch { /* Fall through to the legacy method. */ }
+  }
+  const input = document.createElement('textarea');
+  input.value = text;
+  input.setAttribute('readonly', '');
+  input.style.position = 'fixed';
+  input.style.opacity = '0';
+  document.body.appendChild(input);
+  input.select();
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch { copied = false; }
+  input.remove();
+  return copied;
+};
+const publicShareButton = document.querySelector('#share-crowd-public');
+publicShareButton?.addEventListener('click', async () => {
+  const url = crowdShareUrl();
+  const copied = await copyText(url);
+  if (copied) {
+    publicShareButton.textContent = '共有リンクをコピーしました ✓';
+    window.setTimeout(() => { publicShareButton.textContent = '混雑状況を共有 ↗'; }, 2600);
+  } else {
+    window.prompt('このリンクをコピーしてください', url);
+  }
 });
