@@ -3,24 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>出し物の予約｜収穫祭 2026</title>
+  <meta name="description" content="収穫祭の出し物を予約するページ。Googleフォームから企画名・希望日時・人数を送信できます。">
+  <title>予約フォーム｜収穫祭 2026</title>
   <link rel="icon" type="image/jpeg" href="13391d591499bd351fd114454b225c2cb4a6a75.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260824">
   <link rel="stylesheet" href="logo.css?v=20260824-gallery">
-  <style>
-    .reservation-page{min-height:100vh;padding:110px 7vw 90px;background:linear-gradient(135deg,#071a36,#0d4fa8);color:#fff}.reservation-wrap{max-width:900px;margin:auto}.reservation-back{color:#b9d7ff;text-decoration:none;font-size:12px}.reservation-page h1{font-size:clamp(44px,8vw,100px);line-height:1;margin:70px 0 20px}.reservation-page h1 span{display:block;color:#b9d7ff;font:12px "Archivo Black";letter-spacing:.2em;margin-bottom:18px}.reservation-lead{font-size:17px;line-height:1.9;color:#e7f0fb;max-width:580px}.reservation-status{display:inline-block;margin-top:34px;padding:10px 14px;border:1px solid #b9d7ff;color:#b9d7ff;font:11px "Archivo Black";letter-spacing:.12em}.reservation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:70px}.reservation-card{padding:24px;min-height:210px;background:#fff;color:#071a36;position:relative}.reservation-card small{display:block;color:#0d4fa8;font:10px "Archivo Black";letter-spacing:.12em}.reservation-card h2{font-size:20px;margin:45px 0 10px}.reservation-card p{color:#587296;font-size:12px}.reservation-card::after{content:"COMING SOON";position:absolute;right:14px;top:14px;color:#0d4fa8;font:9px "Archivo Black";letter-spacing:.08em}.reservation-note{margin-top:56px;padding:24px;border:1px solid #ffffff55;color:#dbe8f8;line-height:1.8;font-size:13px}.reservation-note strong{color:#fff}.reservation-home{display:inline-block;margin-top:40px;padding:14px 20px;background:#fff;color:#071a36;text-decoration:none;font-weight:700}
-    @media(max-width:700px){.reservation-page{padding:90px 6vw 60px}.reservation-page h1{margin-top:55px}.reservation-grid{grid-template-columns:1fr;margin-top:50px}.reservation-card{min-height:160px}.reservation-card h2{margin-top:35px}}
-  </style>
+  <link rel="stylesheet" href="redesign.css?v=20260824-v8">
 </head>
 <body>
-  <main class="reservation-page"><div class="reservation-wrap">
-    <a class="reservation-back" href="index.html">← 収穫祭トップへ</a>
-    <h1><span>RESERVATION</span>出し物の予約</h1>
-    <p class="reservation-lead">ステージ企画・体験企画の予約ページです。出し物と時間が決まり次第、こちらから予約受付を開始します。</p>
-    <span class="reservation-status">COMING SOON / 受付準備中</span>
-    <div class="reservation-grid"><article class="reservation-card"><small>STAGE</small><h2>ステージ企画</h2><p>出演内容・時間が決まり次第公開</p></article><article class="reservation-card"><small>EXPERIENCE</small><h2>体験企画</h2><p>教室企画の予約を予定しています</p></article><article class="reservation-card"><small>SPECIAL</small><h2>特別企画</h2><p>詳細は公式SNSでお知らせします</p></article></div>
-    <div class="reservation-note"><strong>予約開始のお知らせ</strong><br>受付開始日時、対象企画、定員、当日の参加方法は決まり次第このページと公式SNSで案内します。</div>
-    <a class="reservation-home" href="index.html">公式サイトに戻る ↗</a>
-  </div></main>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="header">
+    <a class="logo" href="index.html#top" aria-label="収穫祭 トップ">収穫祭<span>2026</span></a>
+    <button class="menu-button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="index.html">HOME</a><a href="programs.html#projects">PROJECT</a><a href="venue.html#visitor-guide">GUIDE</a><a href="stories.html#character">STORY</a><a href="reservation.html">RESERVE</a>
+    </nav>
+  </header>
+
+  <main class="subpage reservation-page" id="top">
+    <section class="subpage-hero reservation-hero">
+      <span class="subpage-label">04 / RESERVATION</span>
+      <p class="hero-kicker">IGNITION / GOOGLE FORM / ENTRY</p>
+      <h1>参加を、<br><em>予約する。</em></h1>
+      <p>企画名・希望日時・人数を入力して送信してください。フォームはこのページからそのまま回答できます。</p>
+      <div class="subpage-actions"><a href="#reservation-form">予約フォーム <span>↓</span></a><a href="programs.html#projects">企画を探す <span>↗</span></a><a href="index.html">トップへ <span>↗</span></a></div>
+    </section>
+
+    <section class="section reservation-section" id="reservation-form">
+      <p class="section-number">01 / ONLINE ENTRY</p>
+      <div class="reservation-heading section-heading">
+        <div><p class="eyebrow">GOOGLE FORM / NOW OPEN</p><h2>予約フォーム</h2><p>下のフォームに必要事項を入力し、最後に「送信」を押してください。</p></div>
+        <span class="reservation-live"><i></i> FORM OPEN</span>
+      </div>
+
+      <div class="reservation-steps" aria-label="予約の流れ">
+        <article><span>STEP 01</span><strong>企画名を選ぶ</strong><p>参加したい出し物を選択します。</p></article>
+        <article><span>STEP 02</span><strong>日時・人数を入力</strong><p>希望日時と参加人数を入力します。</p></article>
+        <article><span>STEP 03</span><strong>送信して完了</strong><p>名前などを確認して送信します。</p></article>
+      </div>
+
+      <div class="reservation-form-card">
+        <div class="reservation-form-card-head"><div><p class="eyebrow">79TH HARVEST FES</p><h3>出し物の予約を申し込む</h3></div><span>SECURE FORM ↗</span></div>
+        <div class="reservation-embed">
+          <iframe title="収穫祭 出し物の予約フォーム" src="https://docs.google.com/forms/d/e/1FAIpQLScwpz6sQUjfkqSExkz6aT84S9VnsyouCbz813PrXE9felXT8w/viewform?embedded=true" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">Googleフォームを読み込めない場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLScwpz6sQUjfkqSExkz6aT84S9VnsyouCbz813PrXE9felXT8w/viewform" target="_blank" rel="noopener">こちらからフォームを開いてください</a>。</iframe>
+        </div>
+        <div class="reservation-form-foot"><p>フォームが表示されないときは、別タブで開いて回答できます。</p><a class="reservation-form-link" href="https://docs.google.com/forms/d/e/1FAIpQLScwpz6sQUjfkqSExkz6aT84S9VnsyouCbz813PrXE9felXT8w/viewform" target="_blank" rel="noopener">フォームを別タブで開く <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section reservation-notes" id="reservation-notes">
+      <p class="section-number">02 / BEFORE YOU SEND</p>
+      <div class="section-heading"><h2>送信前に確認</h2><p>当日の参加をスムーズにするために。</p></div>
+      <div class="reservation-note-grid">
+        <details open><summary>予約内容を変更したい</summary><p>送信後の変更やキャンセルは、公式SNSまたは当日の受付でスタッフにご相談ください。</p></details>
+        <details><summary>受付場所・参加方法は？</summary><p>企画ごとの受付場所や集合時間は、内容が確定次第このページと公式SNSで案内します。</p></details>
+        <details><summary>フォームを使えない場合</summary><p>ページ内の「フォームを別タブで開く」ボタンをお試しください。通信環境を変えても表示されない場合は、当日受付でスタッフにお声がけください。</p></details>
+      </div>
+      <a class="text-link" href="stories.html#sns">公式SNSで最新情報を見る <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="subpage-footer"><a class="logo" href="index.html#top">収穫祭<span>2026</span></a><p>10.31 — 11.01</p><small>© 2026 SYUKAKUSAI EXECUTIVE COMMITTEE</small><div class="footer-pages"><a href="index.html">HOME</a><a href="programs.html">PROJECTS</a><a href="venue.html">GUIDE &amp; MAP</a><a href="stories.html">STORY &amp; PHOTOS</a></div></footer>
+  <script src="script.js?v=20260824-gallery-v2"></script>
 </body>
 </html>
