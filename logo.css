@@ -250,3 +250,36 @@ footer small { color: #9bb3d3; }
   .nav { background: #071a36f7; }
   .brochure img { box-shadow: 10px 10px 0 #0d4fa8; }
 }
+
+.projects { background: #fff; }
+.project-links { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #cbd7e8; border-bottom: 1px solid #cbd7e8; }
+.project-link { min-height: 215px; padding: 22px; color: #071a36; text-decoration: none; border-right: 1px solid #cbd7e8; position: relative; transition: background .2s, color .2s; }
+.project-link:last-child { border-right: 0; }
+.project-link:hover { background: #0d4fa8; color: #fff; }
+.project-link > span { display: block; color: #0d4fa8; font: 11px "Archivo Black"; margin-bottom: 48px; }
+.project-link:hover > span { color: #b9d7ff; }
+.project-link strong { display: block; font: clamp(20px, 2vw, 30px) "Archivo Black"; letter-spacing: .02em; }
+.project-link small { display: block; margin-top: 12px; color: #6d87aa; font-size: 11px; }
+.project-link:hover small { color: #dbe8f8; }
+.project-link b { position: absolute; right: 20px; bottom: 18px; font-size: 24px; font-weight: 400; }
+.news { background: #dcecff; }
+.news-list { border-top: 1px solid #9bb3d3; }
+.news-list a { display: grid; grid-template-columns: 100px 110px 1fr 28px; gap: 18px; align-items: center; padding: 24px 12px; border-bottom: 1px solid #9bb3d3; color: #071a36; text-decoration: none; }
+.news-list a:hover { background: #fff; }
+.news-list time { color: #0d4fa8; font: 12px "Archivo Black"; letter-spacing: .1em; }
+.news-tag { justify-self: start; padding: 5px 8px; border: 1px solid #0d4fa8; color: #0d4fa8; font: 9px "Archivo Black"; letter-spacing: .1em; }
+.news-list strong { font-size: 15px; }
+.news-list b { color: #0d4fa8; font-size: 20px; font-weight: 400; }
+
+@media (max-width: 700px) {
+  .project-links { grid-template-columns: 1fr 1fr; }
+  .project-link { min-height: 175px; padding: 16px; }
+  .project-link > span { margin-bottom: 30px; }
+  .project-link:nth-child(2) { border-right: 0; }
+  .project-link:nth-child(-n+2) { border-bottom: 1px solid #cbd7e8; }
+  .news-list a { grid-template-columns: 68px 1fr 22px; gap: 10px; padding: 20px 4px; }
+  .news-tag { grid-column: 2; grid-row: 1; }
+  .news-list strong { grid-column: 2; grid-row: 2; font-size: 13px; }
+  .news-list time { grid-column: 1; grid-row: 1 / span 2; }
+  .news-list b { grid-column: 3; grid-row: 1 / span 2; }
+}
