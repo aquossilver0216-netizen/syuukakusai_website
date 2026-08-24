@@ -2,6 +2,20 @@ document.documentElement.classList.add('js-enabled');
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('.nav');
 
+const countdown = document.querySelector('#countdown');
+const updateCountdown = () => {
+  if (!countdown) return;
+  const difference = new Date('2026-10-31T09:00:00+09:00').getTime() - Date.now();
+  if (difference <= 0) { countdown.textContent = 'NOW OPEN'; return; }
+  const days = Math.floor(difference / 86400000);
+  const hours = Math.floor(difference / 3600000) % 24;
+  const minutes = Math.floor(difference / 60000) % 60;
+  const seconds = Math.floor(difference / 1000) % 60;
+  countdown.textContent = `${String(days).padStart(2, '0')} DAYS ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+};
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', isOpen);
